@@ -34,7 +34,7 @@
             android:paddingRight="30dp">
 
             <EditText
-                android:id="@+id/idText"
+                android:id="@+id/user_id"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
@@ -50,7 +50,7 @@
                 android:textColorHint="#ffffff" />
 
             <EditText
-                android:id="@+id/passwordText"
+                android:id="@+id/user_pw"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
