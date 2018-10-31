@@ -10,11 +10,11 @@ public class MainActivity extends AppCompatActivity {
     Button m_refButton;
 
     public void sl_BtnClick(View v){
-        Intent ref_Intent;
-        ref_Intent = new Intent(this, LoginActivity.class);
-        startActivity(ref_Intent);
+            Intent ref_Intent;
+            ref_Intent = new Intent(this, LoginActivity.class);
+            startActivity(ref_Intent);
 
-        finish();
+            finish();
 
     }
     protected void onCreate(Bundle savedInstanceState) {
