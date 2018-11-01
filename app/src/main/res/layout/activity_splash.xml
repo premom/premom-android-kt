@@ -15,12 +15,19 @@
         android:layout_gravity="center"
         android:background="@drawable/gra">
 
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/splash"-->
+            <!--android:background="@drawable/gra"-->
+            <!--android:adjustViewBounds="true"/>-->
+
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/splash"
-            android:background="@drawable/gra"
-            android:adjustViewBounds="true"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/splash2"
+        android:background="@drawable/gra"
+        android:adjustViewBounds="true"/>
     </LinearLayout>
 
 

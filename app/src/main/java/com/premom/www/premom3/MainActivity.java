@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         this.setContentView(R.layout.activity_main);
-        m_refButton=(Button)findViewById(R.id.sl_button);
+//        m_refButton=(Button)findViewById(R.id.sl_button);
 
     }
 }
