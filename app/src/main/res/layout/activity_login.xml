@@ -79,7 +79,7 @@
                 android:textSize="18dp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:background="@drawable/edit_round_pink"
+                android:background="@drawable/round_pink"
                 android:text="로그인"
                 android:layout_marginTop="40dp"
                 android:layout_gravity="center"
