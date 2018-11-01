@@ -20,8 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     public void fl_BtnClick(View v){
         Intent ref_Intent;
 
-        ref_Intent = new Intent(this, MainActivity.class);
-
+        ref_Intent = new Intent(this, DiaryActivity.class);
         startActivity(ref_Intent);
 
     }

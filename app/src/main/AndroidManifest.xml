@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!--<uses-feature android:name="android.hardware.type.watch" />-->
+    <!-- <uses-feature android:name="android.hardware.type.watch" /> -->
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -23,16 +23,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".SeatActivity"></activity>
+        <activity android:name=".SeatActivity" />
 
-        <uses-library
-            android:name="com.google.android.wearable"
-            android:required="true" />
 
-        <meta-data
-            android:name="com.google.android.wearable.standalone"
-            android:value="true" />
+        <activity android:name=".DiaryActivity"></activity>
     </application>
-
 
 </manifest>
