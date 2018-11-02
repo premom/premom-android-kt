@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goDiaryActivity(){
         Intent m2_Intent;
-        m2_Intent = new Intent(this, SettingActivity.class);
+        m2_Intent = new Intent(this, DiaryActivity.class);
         startActivity(m2_Intent);
 
         finish();
