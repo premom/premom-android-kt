@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         m1_Intent = new Intent(this, SeatActivity.class);
         startActivity(m1_Intent);
 
-        finish();
+//        finish();
 
     }
 
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         m2_Intent = new Intent(this, DiaryActivity.class);
         startActivity(m2_Intent);
 
-        finish();
+//        finish();
 
     }
 
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         m3_Intent = new Intent(this, SettingActivity.class);
         startActivity(m3_Intent);
 
-        finish();
+//        finish();
 
     }
 
