@@ -8,38 +8,48 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import retrofit2.Retrofit;
 
 
 public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.ViewHolder>{
+    Date mDate;
+
+    SimpleDateFormat mFormat = new SimpleDateFormat("dd日");
+    TextView mTextView;
+
     private ArrayList<MyItem2> my_items;
     int this_position;
     int is_pic;
 
+
     public MyAdapter2(ArrayList<MyItem2> items){
         my_items = items;
-
-
     }
 
     // 필수
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+
         View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_pic, null);
         ViewHolder holder = new ViewHolder(itemLayoutView);
+
+        mTextView = (TextView) itemLayoutView.findViewById(R.id.pic_is_pic);
+        mTextView.setText(getTime());
         return holder;
     }
-
-
+    private String getTime(){
+        mDate = new Date();
+        return mFormat.format(mDate);
+    }
     //필
     public void onBindViewHolder(ViewHolder viewHolder, int position){
         this_position = position;
-
         is_pic = my_items.get(position).getIs_pic();
 
-        viewHolder.pic_is_pic.setText(Integer.toString(is_pic));
         if(is_pic == 0) {
             viewHolder.pic_cho.setImageResource(R.drawable.choumpa);
         }
@@ -64,6 +74,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.ViewHolder>{
             pic_view = (RelativeLayout) itemLayoutView.findViewById(R.id.pic_view);
 
         }
+
 
     }
 }

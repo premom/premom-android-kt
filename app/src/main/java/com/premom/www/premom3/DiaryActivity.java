@@ -1,12 +1,10 @@
 package com.premom.www.premom3;
 
 import android.content.Context;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.widget.TabHost;
 
 import java.io.IOException;
@@ -44,7 +42,9 @@ public class DiaryActivity extends AppCompatActivity {
         getDiaryData();
 
         mTextView = (TextView) findViewById(R.id.TextView);
-        mTextView.setText(getTime());
+        mTextView.setText(getTime());/*
+        mTextView2 = (TextView) findViewById(R.id.pic_is_pic);
+        mTextView2.setText(getTime());*/
         TabHost tabHost1 = (TabHost) findViewById(R.id.tabHost1) ;
         tabHost1.setup() ;
 
