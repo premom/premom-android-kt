@@ -13,6 +13,10 @@
             android:summary="핫핑크"
             android:title="테마설정"/>
 
+        <CheckBoxPreference
+            android:key = "update"
+            android:title = "자동 업데이트"/>
+
     </PreferenceCategory>
 
 
