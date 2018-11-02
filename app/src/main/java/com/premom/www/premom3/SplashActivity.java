@@ -8,7 +8,7 @@ import android.view.WindowManager;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private final int SPLASH_DISPLAY_LENGTH = 2000;
+    private final int SPLASH_DISPLAY_LENGTH = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

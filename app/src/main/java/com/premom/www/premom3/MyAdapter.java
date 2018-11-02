@@ -1,0 +1,82 @@
+package com.premom.www.premom3;
+
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import retrofit2.Retrofit;
+
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
+    private ArrayList<MyItem> my_items;
+    int this_position;
+    String name;
+    int is_seat;
+    Retrofit retrofit;
+    ApiService apiService;
+
+    public MyAdapter(ArrayList<MyItem> items){
+        my_items = items;
+
+        retrofit=new Retrofit.Builder().baseUrl(ApiService.API_URL).build();
+        apiService = retrofit.create(ApiService.class);
+
+    }
+
+    // 필수
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_seat, null);
+        ViewHolder holder = new ViewHolder(itemLayoutView);
+        return holder;
+    }
+
+
+    //필수
+    @Override
+    public void onBindViewHolder(ViewHolder viewHolder, int position){
+        this_position = position;
+        name = my_items.get(position).getName();
+        is_seat = my_items.get(position).getIs_seat();
+
+        viewHolder.seat_name.setText(name);
+        viewHolder.seat_is_seat.setText("남은좌석 (" + Integer.toString(is_seat) + "/1)");
+        if(is_seat == 0) {
+            viewHolder.seat_heart.setImageResource(R.drawable.heart_gray);
+        }
+    }
+    // 필수
+    @Override
+    public int getItemCount(){
+        return my_items.size();
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView seat_name;
+        public TextView seat_is_seat;
+        public TextView seat_fast;
+        public ImageView seat_heart;
+        public RelativeLayout seat_view;
+        public ViewHolder(View itemLayoutView) {
+            super(itemLayoutView);
+            seat_name = (TextView) itemLayoutView.findViewById(R.id.seat_name);
+            seat_is_seat = (TextView) itemLayoutView.findViewById(R.id.seat_is_seat);
+            seat_fast = (TextView) itemLayoutView.findViewById(R.id.seat_fast);
+            seat_heart = (ImageView) itemLayoutView.findViewById(R.id.seat_heart);
+            seat_view = (RelativeLayout) itemLayoutView.findViewById(R.id.seat_view);
+
+        }
+
+    }
+
+}

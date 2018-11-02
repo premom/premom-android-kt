@@ -1,7 +1,11 @@
 package com.premom.www.premom3;
 
+import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -10,6 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -17,93 +22,114 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class SeatActivity extends AppCompatActivity {
+public class SeatActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     Retrofit retrofit;
     ApiService apiService;
     TextView text;
     TextView text1;
+    RecyclerView recycler;
+    MyAdapter mAdapter;
+    ArrayList<MyItem> item_views;
+    Context mContext;
+    SwipeRefreshLayout mSwipeRefreshLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat);
-        retrofit=new Retrofit.Builder().baseUrl(ApiService.API_URL).build();
-        //서버주소빌드해옴(?)
+
+        setViewId();
+
+        item_views = new ArrayList<>();
+        mContext = this;
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+
+        getSeatData();
+
+
+    }
+
+    public void setViewId() {
+        retrofit = new Retrofit.Builder().baseUrl(ApiService.API_URL).build();
         apiService = retrofit.create(ApiService.class);
-        //apiService클래스 생성
-        text = (TextView) findViewById(R.id.text1);         //text1창을 text로
-        text1 = (TextView) findViewById(R.id.text2);         //text1창을 text로
+        recycler = (RecyclerView) findViewById(R.id.seat_view);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_layout);
+    }
 
-
+    public void getSeatData() {
         Call<ResponseBody> comment = apiService.getComment();
-        //getComment우리가 만든 함수 괄호 안은 변수명
-        comment.enqueue(new Callback<ResponseBody>(){
-            //데이터가 성공적으로 받아지면 onResponse, 실패하면 onFailure
+
+
+        comment.enqueue(new Callback<ResponseBody>() {
+
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response){
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 try {
                     String result = response.body().string();
                     Log.v("Test", result);
                     try {
                         JSONObject json = new JSONObject(result);
                         JSONArray data = json.getJSONArray("data");
-/*
-                        for(int i = 0; i < data.length(); i++) {
+
+                        item_views.clear();
+
+                        for (int i = 0; i < data.length(); i++) {
 
                             JSONObject obj = data.getJSONObject(i);
+
                             int is_seat = obj.getInt("is_seat");
                             int idx = obj.getInt("idx");
+                            String name = obj.getString("name");
+
+                            MyItem item = new MyItem();
+                            item.setIdx(idx);
+                            item.setIs_seat(is_seat);
+                            item.setName(name);
+                            item_views.add(item);
+                        }
 
 
-                            Log.v("Test2", Integer.toString(is_seat));
-                            text.setText(Integer.toString(is_seat));
-                            text1.setText(Integer.toString(is_seat));
-                        }*/
-                        JSONObject obj = data.getJSONObject(0);
-                        int is_seat = obj.getInt("is_seat");
-                        JSONObject obj2 = data.getJSONObject(1);
-                        int is_seat2 = obj2.getInt("is_seat");
 
-                        Log.v("Test1", Integer.toString(is_seat));
-                        text.setText(Integer.toString(is_seat));
-                        text1.setText(Integer.toString(is_seat2));
+                        // set layoutManager
+                        recycler.setLayoutManager(new LinearLayoutManager(mContext));
+
+                        // set Adapter
+                        mAdapter = new MyAdapter(item_views);
+                        recycler.setAdapter(mAdapter);
+
 
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
-//                    try {
-//                        JSONArray jsonArray = new JSONArray(result);
-                        /*
-                        int post=0;
-                        int id;
-                        String name;
-                        String mail;
-                        String body;
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject = jsonArray.getJSONObject(i);
-                            post = jsonObject.getInt("is_seat");//postId변수명을 바꿔보았댱
-                            id = jsonObject.getInt("idx");
-                            Log.v("Test", jsonObject.toString());
-                        }
-                        //System.out.println(post);
-                        TextView text;
-                        text = (TextView) findViewById(R.id.text1);
-                        text.setText(post);
-                        */
-//                    }catch(JSONException e){
-//                            e.printStackTrace();
-//                    }
 
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
             }
+
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t){
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
 
             }
 
         });
+
+    }
+
+
+    @Override
+    public void onRefresh() {
+        // 새로고침 코드
+        getSeatData();
+//        mainBinding.recyclerView.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                Snackbar.make(mainBinding.recyclerView,"Refresh Success",Snackbar.LENGTH_SHORT).show();
+//                mainBinding.swipeRefreshLo.setRefreshing(false);
+//            }
+//        },500);
+
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 }
