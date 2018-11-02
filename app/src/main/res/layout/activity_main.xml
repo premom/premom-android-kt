@@ -182,8 +182,8 @@
                 <ImageButton
                     android:id="@+id/menu_mypage_img"
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="65dp"
+                    android:layout_marginTop="5dp"
                     android:background="@null"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
@@ -207,7 +207,7 @@
                 android:layout_height="150dp"
                 android:layout_weight="1"
                 android:paddingTop="20dp"
-                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:orientation="vertical">
 
 
