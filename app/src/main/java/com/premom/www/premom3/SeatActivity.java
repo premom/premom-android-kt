@@ -12,15 +12,12 @@ import android.util.Log;
 import android.widget.TextView;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -34,8 +31,8 @@ public class SeatActivity extends AppCompatActivity implements SwipeRefreshLayou
     TextView text;
     TextView seat_today;
     RecyclerView recycler;
-    MyAdapter mAdapter;
-    ArrayList<MyItem> item_views;
+    SeatAdapter mAdapter;
+    ArrayList<SeatItem> item_views;
     Context mContext;
     SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -125,7 +122,7 @@ public class SeatActivity extends AppCompatActivity implements SwipeRefreshLayou
                             String name = obj.getString("name");
                             int fast_transfer = obj.getInt("fast_transfer");
 
-                            MyItem item = new MyItem();
+                            SeatItem item = new SeatItem();
                             item.setIdx(idx);
                             item.setIs_seat(is_seat);
                             item.setName(name);
@@ -139,7 +136,7 @@ public class SeatActivity extends AppCompatActivity implements SwipeRefreshLayou
                         recycler.setLayoutManager(new LinearLayoutManager(mContext));
 
                         // set Adapter
-                        mAdapter = new MyAdapter(item_views);
+                        mAdapter = new SeatAdapter(item_views);
                         recycler.setAdapter(mAdapter);
 
 
@@ -167,13 +164,6 @@ public class SeatActivity extends AppCompatActivity implements SwipeRefreshLayou
     public void onRefresh() {
         // 새로고침 코드
         getSeatData();
-//        mainBinding.recyclerView.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                Snackbar.make(mainBinding.recyclerView,"Refresh Success",Snackbar.LENGTH_SHORT).show();
-//                mainBinding.swipeRefreshLo.setRefreshing(false);
-//            }
-//        },500);
 
         mSwipeRefreshLayout.setRefreshing(false);
     }

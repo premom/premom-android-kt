@@ -1,32 +1,25 @@
 package com.premom.www.premom3;
 
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import retrofit2.Retrofit;
-
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
-    private ArrayList<MyItem> my_items;
+public class SeatAdapter extends RecyclerView.Adapter<SeatAdapter.ViewHolder>{
+    private ArrayList<SeatItem> my_items;
 
     int this_position;
     String name;
     int is_seat;
     int seat_fast;
 
-
-    public MyAdapter(ArrayList<MyItem> items){
+    public SeatAdapter(ArrayList<SeatItem> items){
         my_items = items;
     }
 
@@ -57,6 +50,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
             viewHolder.seat_fast.setTextColor(Color.parseColor("#666666"));
         }
     }
+
     // 필수
     @Override
     public int getItemCount(){

@@ -1,6 +1,6 @@
 package com.premom.www.premom3;
 
-public class MyItem {
+public class SeatItem {
     int fast_transfer;
     int is_seat;
     int idx;
