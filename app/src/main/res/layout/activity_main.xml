@@ -98,28 +98,69 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:padding="10dp"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/menu_seat_img"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@null"
-                android:adjustViewBounds="true"
-                android:scaleType="centerInside"
-                android:padding="10dp"
-                android:src="@drawable/menu1"/>
-            <Button
-                android:id="@+id/menu_seat_txt"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/menu_seat_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@null"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:padding="10dp"
+                    android:src="@drawable/menu1"/>
+                <Button
+                    android:id="@+id/menu_seat_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="핑크카펫보기"
+                    android:background="@null"
+                    android:textColor="#6f6f6f"
+                    android:textSize="18dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:paddingTop="20dp"
+                android:paddingRight="10dp"
                 android:layout_gravity="center"
-                android:text="핑크카펫보기"
-                android:background="@null"
-                android:textColor="#6f6f6f"
-                android:textSize="18dp"
-                android:textStyle="bold"/>
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/menu_diary_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:padding="10dp"
+                    android:src="@drawable/menu3"/>
+                <Button
+                    android:id="@+id/menu_diary_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="육아일기"
+                    android:background="@null"
+                    android:textColor="#6f6f6f"
+                    android:textSize="18dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -133,26 +174,28 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
-                android:layout_weight="1"
                 android:paddingTop="20dp"
-                android:paddingRight="10dp"
-                android:layout_gravity="center"
+                android:paddingLeft="10dp"
+                android:layout_weight="1"
                 android:orientation="vertical">
+
                 <ImageButton
-                    android:id="@+id/menu_diary_img"
+                    android:id="@+id/menu_mypage_img"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
+                    android:layout_marginTop="10dp"
                     android:background="@null"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
                     android:padding="10dp"
-                    android:src="@drawable/menu3"/>
+                    android:src="@drawable/person"/>
+
                 <Button
-                    android:id="@+id/menu_diary_txt"
+                    android:id="@+id/menu_mypage_txt"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:text="육아일기"
+                    android:text="마이페이지"
                     android:background="@null"
                     android:textColor="#6f6f6f"
                     android:textSize="18dp"
