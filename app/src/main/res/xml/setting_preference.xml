@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title = "환경설정">
+        <SwitchPreference
+            android:key = "message"
+            android:title = "메시지 알림"/>
+
+        <ListPreference
+            android:entries = "@array/theme_color"
+            android:entryValues="@array/theme_color"
+            android:key = "theme_list"
+            android:summary="핫핑크"
+            android:title="테마설정"/>
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>
