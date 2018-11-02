@@ -2,10 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-
-
     <PreferenceCategory android:title = "알림설정">
-
 
         <SwitchPreference
             android:key = "silent"
@@ -19,11 +16,9 @@
             android:key = "message"
             android:title = "좌석 알림"/>
 
-
         <!--<CheckBoxPreference-->
             <!--android:key = "update"-->
             <!--android:title = "자동 업데이트"/>-->
-
 
     </PreferenceCategory>
 
@@ -36,8 +31,6 @@
             android:summary="핫핑크"
             android:title="테마설정"/>
 
-
-
     </PreferenceCategory>
 
     <PreferenceCategory android:title = "고객지원">
@@ -46,8 +39,10 @@
         <ListPreference
             android:title="서비스 도움말"/>
         <ListPreference
+            android:key = "logout"
             android:title = "로그아웃"/>
         <ListPreference
+            android:key = "exit_service"
             android:title = "서비스 탈퇴"/>
 
     </PreferenceCategory>

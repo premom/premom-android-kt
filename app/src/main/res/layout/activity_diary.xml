@@ -7,75 +7,92 @@
     tools:context=".DiaryActivity">
 
     <TabHost
-            android:id="@+id/tabHost1"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+        android:id="@+id/tabHost1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+            <FrameLayout
+                android:id="@android:id/tabcontent"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:orientation="vertical" >
-                <FrameLayout
-                    android:id="@android:id/tabcontent"
+                android:layout_weight="1"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:id="@+id/tab1"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:padding="10dp">
-
-                    <LinearLayout
-                        android:id="@+id/tab1"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:orientation="vertical">
+                    android:orientation="vertical">
                     <CalendarView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content" />
 
-                    </LinearLayout>>
+                </LinearLayout>>
 
-                    <TextView
-                        android:id="@+id/tab2"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"/>
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:id="@+id/tab3"
+                    <android.support.v7.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:background="#FFD9EC">
-
-                        <TextView
-                            android:id="@+id/TextView"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="30dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/white"
-                            android:background="@drawable/round_pink"
-                            android:layout_marginTop="10dp"
-                            android:layout_gravity="center"
-                            android:text="날짜"
-                            android:textAlignment="center"/>
-
-                        <EditText
-                            android:id="@+id/textView"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:padding="20dp"
-                            android:text="기록장"
-                            android:textColor="@color/white"
-
-                            />
-                    </LinearLayout>
+                        android:scrollbars="vertical"
+                        android:background="@color/white"
+                        android:paddingLeft="40dp"
+                        android:paddingRight="40dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="30dp"
+                        android:id="@+id/pic_view">
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
 
 
-                </FrameLayout>
-                <TabWidget
-                        android:id="@android:id/tabs"
+
+
+
+                <LinearLayout
+                    android:id="@+id/tab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="#FFD9EC">
+
+                    <TextView
+                        android:id="@+id/TextView"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content" />
-            </LinearLayout>
-        </TabHost>
+                        android:layout_height="wrap_content"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/round_pink"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
+                        android:text="날짜"
+                        android:textAlignment="center"/>
+
+                    <EditText
+                        android:id="@+id/textView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:padding="20dp"
+                        android:text="기록장"
+                        android:textColor="@color/white"
+
+                        />
+                </LinearLayout>
+
+
+            </FrameLayout>
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </TabHost>
 </android.support.constraint.ConstraintLayout>
