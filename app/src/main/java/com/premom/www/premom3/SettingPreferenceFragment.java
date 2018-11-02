@@ -5,6 +5,7 @@ import android.preference.ListPreference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.widget.BaseAdapter;
 
 public class SettingPreferenceFragment extends PreferenceFragment{
     SharedPreferences prefs;
@@ -33,7 +34,7 @@ public class SettingPreferenceFragment extends PreferenceFragment{
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
             if(key.equals("theme_list")){
                 themePreference.setSummary(prefs.getString("theme_list","핫핑크"));
-            }
+                }
         }
     };
 
