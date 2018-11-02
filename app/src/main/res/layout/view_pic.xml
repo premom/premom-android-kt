@@ -59,15 +59,21 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/sun_icon" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/pic_cho"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_centerVertical="true"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:scaleType="centerCrop"/>
+                <ImageView
+                    android:id="@+id/pic_cho"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:adjustViewBounds="false"
+                    android:scaleType="fitXY"/>
+
+            </LinearLayout>
+
 
 
         </LinearLayout>

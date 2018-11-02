@@ -52,7 +52,7 @@
                             android:textSize="22dp"
                             android:textColor="@color/white"
                             android:textStyle="bold"
-                            android:text="홍길동" />
+                            android:text="쁘띠페" />
 
                         <TextView
                             android:layout_width="wrap_content"
