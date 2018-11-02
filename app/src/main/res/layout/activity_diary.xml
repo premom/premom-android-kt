@@ -59,7 +59,7 @@
                             android:layout_height="fill_parent" />
 
                     </LinearLayout>
-                    >
+
 
                     <LinearLayout
                         android:id="@+id/tab2"

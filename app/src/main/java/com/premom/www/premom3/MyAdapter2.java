@@ -18,8 +18,10 @@ import retrofit2.Retrofit;
 public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.ViewHolder>{
     Date mDate;
 
-    SimpleDateFormat mFormat = new SimpleDateFormat("dd日");
+    SimpleDateFormat mFormat = new SimpleDateFormat("dd");
     TextView mTextView;
+    SimpleDateFormat mFormat2 = new SimpleDateFormat("EEE");
+    TextView mTextView2;
 
     private ArrayList<MyItem2> my_items;
     int this_position;
@@ -39,7 +41,29 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.ViewHolder>{
 
         mTextView = (TextView) itemLayoutView.findViewById(R.id.pic_is_pic);
         mTextView.setText(getTime());
+        mTextView2 = (TextView) itemLayoutView.findViewById(R.id.pic_is_pic2);
+        mTextView2.setText(getTime2());
         return holder;
+    }
+    private String getTime2(){
+        mDate = new Date();
+        String day = "";
+        if(mFormat2.format(mDate)=="월")
+            day="Mon";
+        else if(mFormat2.format(mDate)=="화")
+            day="Tue";
+        else if(mFormat2.format(mDate)=="수")
+            day="Wed";
+        else if(mFormat2.format(mDate)=="목")
+            day="Thr";
+        else if(mFormat2.format(mDate)=="금")
+            day="Fri";
+        else if(mFormat2.format(mDate)=="토")
+            day="Sat";
+        else
+            day="Sun";
+
+        return (day);
     }
     private String getTime(){
         mDate = new Date();
