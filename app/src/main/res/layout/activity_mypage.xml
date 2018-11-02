@@ -15,59 +15,78 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:background="@drawable/twotone"
             android:orientation="vertical"
             tools:layout_editor_absoluteX="84dp"
             tools:layout_editor_absoluteY="56dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="127dp"
+                android:layout_width="200dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
                 android:orientation="horizontal"
-                android:paddingLeft="180dp"
-                android:paddingTop="50dp"
-                tools:layout_editor_absoluteX="84dp"
-                tools:layout_editor_absoluteY="60dp">
+                android:padding="5dp"
+                android:paddingTop="50dp">
 
-                <TextView
+                <ImageView
+                    android:id="@+id/pic_cho"
+                    android:layout_width="20dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cha"
+                    />
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="50dp"
-                    android:text="홍길동" />
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:layout_gravity="center">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:textAlignment="center"
+                            android:layout_weight="3"
+                            android:text="홍길동" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="(여)" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:layout_weight="1"
+                            android:text="(여)" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="22세" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="임신 5주차" />
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="180dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
-                    android:text="22세" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
-                    android:text="/" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
-                    android:text="임신 5주차" />
-            </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
@@ -75,12 +94,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="비밀번호 변경" />
+                    android:padding="22dp"
+                    android:background="@drawable/recpuple"
+                    android:textColor="@color/white"
+                    android:text="비밀번호 변경"/>
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:padding="22dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/recpupl"
                     android:text="비밀번호 변경2" />
 
             </LinearLayout>
@@ -88,39 +113,67 @@
                 android:id="@+id/pg_menu1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:background="@drawable/recpink"
-                android:text="메뉴입니다1" />
+                android:textAlignment="textStart"
+                android:padding="22dp"
+                android:textColor="#747474"
+                android:drawableStart="@drawable/ic_stop_black_24dp"
+                android:text=" 메뉴입니다1" />
 
             <Button
                 android:id="@+id/pg_menu2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="메뉴입니다2" />
+                android:textAlignment="textStart"
+                android:background="@drawable/recpink"
+                android:padding="22dp"
+                android:textColor="#747474"
+                android:drawableStart="@drawable/ic_stop_black_24dp"
+                android:text=" 메뉴입니다1" />
 
             <Button
                 android:id="@+id/pg_menu3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="메뉴입니다3" />
+                android:background="@drawable/recpink"
+                android:textAlignment="textStart"
+                android:padding="22dp"
+                android:textColor="#747474"
+                android:drawableStart="@drawable/ic_stop_black_24dp"
+                android:text=" 메뉴입니다1" />
 
             <Button
                 android:id="@+id/pg_menu4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="메뉴입니다4" />
+                android:textAlignment="textStart"
+                android:background="@drawable/recpink"
+                android:padding="22dp"
+                android:textColor="#747474"
+                android:drawableStart="@drawable/ic_stop_black_24dp"
+                android:text=" 메뉴입니다1"/>
 
             <Button
                 android:id="@+id/pg_menu5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="메뉴입니다5" />
+                android:background="@drawable/recpink"
+                android:textAlignment="textStart"
+                android:padding="22dp"
+                android:textColor="#747474"
+                android:drawableStart="@drawable/ic_stop_black_24dp"
+                android:text=" 메뉴입니다1"/>
 
             <Button
                 android:id="@+id/pg_menu6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="메뉴입니다6" />
+                android:textAlignment="textStart"
+                android:background="@drawable/recpink"
+                android:padding="22dp"
+                android:textColor="#747474"
+                android:drawableStart="@drawable/ic_stop_black_24dp"
+                android:text=" 메뉴입니다1"/>
 
 
         </LinearLayout>
