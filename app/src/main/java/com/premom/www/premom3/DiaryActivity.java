@@ -57,7 +57,7 @@ public class DiaryActivity extends AppCompatActivity {
         // 두 번째 Tab. (탭 표시 텍스트:"TAB 2"), (페이지 뷰:"content2")
         TabHost.TabSpec ts2 = tabHost1.newTabSpec("Tab Spec 2") ;
         ts2.setContent(R.id.tab2) ;
-        ts2.setIndicator("TAB 2") ;
+        ts2.setIndicator("Record") ;
         tabHost1.addTab(ts2) ;
 
         // 세 번째 Tab. (탭 표시 텍스트:"TAB 3"), (페이지 뷰:"content3")
