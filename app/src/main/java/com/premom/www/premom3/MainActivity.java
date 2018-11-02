@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     public void setViewId() {
         go_seat_txt = (Button) findViewById(R.id.menu_seat_txt);
         go_seat_img = (ImageButton) findViewById(R.id.menu_seat_img);
