@@ -2,47 +2,38 @@ package com.premom.www.premom3;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.media.ExifInterface;
-import android.media.Image;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Button;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TabHost;
 
-import java.io.IOException;
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONObject;
-
-import okhttp3.ResponseBody;
-import retrofit2.Retrofit;
-
 public class DiaryActivity extends AppCompatActivity {
     Date mDate;
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd");
-    TextView mTextView;
-    TextView mTextView2;
     TabHost tabHost1;
 
     RecyclerView recycler;
-    MyAdapter2 mAdapter;
-    ArrayList<MyItem2> item_views;
+    DiaryAdapter mAdapter;
+    ArrayList<DiaryItem> item_views;
     Context mContext;
 
     ImageView pic_cho2;
@@ -51,21 +42,71 @@ public class DiaryActivity extends AppCompatActivity {
 
     private final int GALLERY_CODE=1112;
 
+    private DBHelper dbHelper;
+
+    EditText view_title;
+    TextView view_date;
+    EditText view_content;
+
+
+    byte[] data_img;
+    String data_title;
+    String data_content;
+    String data_date;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary);
+
+        setDatabase();
 
         setViewId();
 
         item_views = new ArrayList<>();
         mContext = this;
 
-        mTextView.setText(getTime());
+        view_date.setText(getTime());
 
         setTab();
         getDiaryData();
         clickEvent();
     }
+
+    private void setDatabase() {
+        if(dbHelper == null) {
+            dbHelper = new DBHelper(DiaryActivity.this, "diary", null, 1);
+        }
+    }
+
+    public void save() {
+        DiaryItem data = new DiaryItem();
+        data.setIs_pic(data_img);
+        data.setContent(data_content);
+        data.setDate(data_date);
+        data.setTitle(data_title);
+
+        dbHelper.addDiary(data);
+
+
+    }
+
+    public boolean checkWrite() {
+        if(view_content.getText().toString().equals("") || view_content.getText().toString() == null) {
+            return false;
+        } else if(view_title.getText().toString().equals("") || view_title.getText().toString() == null) {
+            return false;
+        } else if(pic_cho2.getDrawable() == null) {
+            return false;
+        } else {
+            data_content = view_content.getText().toString();
+            data_title = view_title.getText().toString();
+            data_date = view_date.getText().toString();
+            data_img = getByteArrayFromDrawable(pic_cho2.getDrawable());
+            return true;
+        }
+    }
+
+
 
     public void setTab(){
         tabHost1.setup() ;
@@ -87,6 +128,17 @@ public class DiaryActivity extends AppCompatActivity {
         ts3.setContent(R.id.tab3) ;
         ts3.setIndicator("Diary") ;
         tabHost1.addTab(ts3) ;
+
+        tabHost1.setCurrentTab(1);
+    }
+
+    public void clearWriteView() {
+        view_title.setText("");
+        view_content.setText("");
+        pic_cho2.setImageBitmap(null);
+        diary_img_select.setImageResource(R.drawable.write_pic);
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view_title.getWindowToken(), 0);
     }
 
     public void clickEvent(){
@@ -100,36 +152,51 @@ public class DiaryActivity extends AppCompatActivity {
         write_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
+                if(checkWrite()) {
+                    save();
+                    clearWriteView();
+                    getDiaryData();
+                    Toast.makeText(mContext, "글이 저장되었습니다.", Toast.LENGTH_SHORT).show();
+                    tabHost1.setCurrentTab(1);
+                } else {
+                    Toast.makeText(mContext, "모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }
 
     public void setViewId() {
         tabHost1 = (TabHost) findViewById(R.id.tabHost1) ;
-        mTextView = (TextView) findViewById(R.id.TextView);
         pic_cho2 = (ImageView) findViewById(R.id.pic_cho2);
         diary_img_select = (ImageButton) findViewById(R.id.diary_img_select);
         recycler = (RecyclerView) findViewById(R.id.pic_view);
         write_btn = (ImageButton) findViewById(R.id.write_btn);
+
+        view_date = (TextView) findViewById(R.id.data_date);
+        view_content = (EditText) findViewById(R.id.data_content);
+        view_title = (EditText) findViewById(R.id.data_title);
+
+    }
+
+
+
+    public byte[] getByteArrayFromDrawable(Drawable d) {
+        Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+
+        byte[] data = stream.toByteArray();
+
+        return stream.toByteArray();
     }
 
     public void getDiaryData() {
-        for (int i = 0; i < 2; i++) {
-            //JSONObject obj = data.getJSONObject(i);
-            int is_pic = 0;//사진
-
-            MyItem2 item = new MyItem2();
-            item.setIs_pic(is_pic);
-
-            item_views.add(item);
-        }
+        item_views = dbHelper.getAllDiaryData();
+Log.d("test", Integer.toString(item_views.size()));
         recycler.setLayoutManager(new LinearLayoutManager(mContext));
-
-        // set Adapter
-        mAdapter = new MyAdapter2(item_views);
+        mAdapter = new DiaryAdapter(item_views);
         recycler.setAdapter(mAdapter);
-
     }
 
     private String getTime(){

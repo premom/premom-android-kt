@@ -47,7 +47,7 @@
                     android:layout_centerInParent="true"
                     android:paddingBottom="20dp"
                     android:text="3달"
-                    android:textSize="30dp"
+                    android:textSize="25dp"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -128,8 +128,7 @@
                     android:text="핑크카펫보기"
                     android:background="@null"
                     android:textColor="#6f6f6f"
-                    android:textSize="18dp"
-                    android:textStyle="bold"/>
+                    android:textSize="17dp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -157,8 +156,7 @@
                     android:text="육아일기"
                     android:background="@null"
                     android:textColor="#6f6f6f"
-                    android:textSize="18dp"
-                    android:textStyle="bold"/>
+                    android:textSize="17dp"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -198,8 +196,7 @@
                     android:text="마이페이지"
                     android:background="@null"
                     android:textColor="#6f6f6f"
-                    android:textSize="18dp"
-                    android:textStyle="bold"/>
+                    android:textSize="17dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -228,8 +225,7 @@
                     android:text="설정"
                     android:background="@null"
                     android:textColor="#6f6f6f"
-                    android:textSize="18dp"
-                    android:textStyle="bold"/>
+                    android:textSize="17dp"/>
             </LinearLayout>
         </LinearLayout>
 
