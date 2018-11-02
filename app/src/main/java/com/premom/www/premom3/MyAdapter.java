@@ -19,18 +19,15 @@ import retrofit2.Retrofit;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     private ArrayList<MyItem> my_items;
+
     int this_position;
     String name;
     int is_seat;
-    Retrofit retrofit;
-    ApiService apiService;
+    int seat_fast;
+
 
     public MyAdapter(ArrayList<MyItem> items){
         my_items = items;
-
-        retrofit=new Retrofit.Builder().baseUrl(ApiService.API_URL).build();
-        apiService = retrofit.create(ApiService.class);
-
     }
 
     // 필수
@@ -48,11 +45,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         this_position = position;
         name = my_items.get(position).getName();
         is_seat = my_items.get(position).getIs_seat();
+        seat_fast = my_items.get(position).getFast_transfer();
 
         viewHolder.seat_name.setText(name);
         viewHolder.seat_is_seat.setText("남은좌석 (" + Integer.toString(is_seat) + "/1)");
         if(is_seat == 0) {
             viewHolder.seat_heart.setImageResource(R.drawable.heart_gray);
+        }
+
+        if(seat_fast == 1) {
+            viewHolder.seat_fast.setTextColor(Color.parseColor("#666666"));
         }
     }
     // 필수

@@ -1,6 +1,8 @@
 package com.premom.www.premom3;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,7 +16,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -26,7 +32,7 @@ public class SeatActivity extends AppCompatActivity implements SwipeRefreshLayou
     Retrofit retrofit;
     ApiService apiService;
     TextView text;
-    TextView text1;
+    TextView seat_today;
     RecyclerView recycler;
     MyAdapter mAdapter;
     ArrayList<MyItem> item_views;
@@ -54,7 +60,44 @@ public class SeatActivity extends AppCompatActivity implements SwipeRefreshLayou
         apiService = retrofit.create(ApiService.class);
         recycler = (RecyclerView) findViewById(R.id.seat_view);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_layout);
+        seat_today = (TextView) findViewById(R.id.seat_today);
     }
+
+    public void setDate() {
+        SimpleDateFormat date = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+        String time = date.format(new Date(System.currentTimeMillis()));
+
+        seat_today.setText(time);
+
+    }
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            setDate();
+        }
+    };
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Thread myThread = new Thread(new Runnable() {
+            public void run() {
+                while (true) {
+                    try {
+                        handler.sendMessage(handler.obtainMessage());
+                        Thread.sleep(1000);
+                    } catch (Throwable t) {
+                    }
+                }
+            }
+        });
+
+        myThread.start();
+    }
+
+
 
     public void getSeatData() {
         Call<ResponseBody> comment = apiService.getComment();
@@ -80,11 +123,13 @@ public class SeatActivity extends AppCompatActivity implements SwipeRefreshLayou
                             int is_seat = obj.getInt("is_seat");
                             int idx = obj.getInt("idx");
                             String name = obj.getString("name");
+                            int fast_transfer = obj.getInt("fast_transfer");
 
                             MyItem item = new MyItem();
                             item.setIdx(idx);
                             item.setIs_seat(is_seat);
                             item.setName(name);
+                            item.setFast_transfer(fast_transfer);
                             item_views.add(item);
                         }
 

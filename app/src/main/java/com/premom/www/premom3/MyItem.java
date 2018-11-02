@@ -1,7 +1,19 @@
 package com.premom.www.premom3;
 
 public class MyItem {
+    int fast_transfer;
+    int is_seat;
+    int idx;
+    String name;
 
+
+    public int getFast_transfer() {
+        return fast_transfer;
+    }
+
+    public void setFast_transfer(int fast_transfer) {
+        this.fast_transfer = fast_transfer;
+    }
 
     public int getIs_seat() {
         return is_seat;
@@ -11,8 +23,6 @@ public class MyItem {
         this.is_seat = is_seat;
     }
 
-    int is_seat;
-    int idx;
 
     public int getIdx() {
         return idx;
@@ -30,6 +40,5 @@ public class MyItem {
         this.name = name;
     }
 
-    String name;
 
 }
