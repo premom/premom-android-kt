@@ -28,8 +28,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="241dp">
+        android:layout_marginTop="75dp">
 
         <TabHost
             android:id="@+id/tabHost1"
@@ -47,7 +46,7 @@
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
                     android:padding="10dp">
-                    <!--
+
                     <LinearLayout
                         android:id="@+id/tab1"
                         android:layout_width="fill_parent"
@@ -79,7 +78,7 @@
                             android:paddingBottom="30dp"
                             android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
                     </LinearLayout>
--->
+
 
                     <LinearLayout
                         android:id="@+id/tab3"
@@ -90,41 +89,37 @@
                         <ImageView
                             android:id="@+id/pic_cho2"
                             android:layout_width="match_parent"
-                            android:layout_height="250dp"
-                            android:layout_centerVertical="true"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="0dp"
                             android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:scaleType="center"
+                            android:scaleType="centerInside"
                             android:src="@drawable/choumpa" />
-
                         <EditText
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="250dp"
-                            android:padding="5dp"
-                            android:text="뽀짝이 초음파" />
-
+                            android:textSize="15dp"
+                            android:textColor="#D5D5D5"
+                            android:padding="10dp"
+                            android:text="뽀짝이 초음파"
+                            />
                         <TextView
                             android:id="@+id/TextView"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="300dp"
                             android:background="#D5D5D5"
-                            android:padding="5dp"
+                            android:padding="10dp"
                             android:text="날짜"
-                            android:textAlignment="center"
-                            android:textSize="10dp" />
 
+                            android:textSize="15dp" />
                         <EditText
                             android:id="@+id/textView"
                             android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_marginTop="500dp"
+                            android:layout_height="wrap_content"
                             android:padding="20dp"
                             android:text="오늘의 기록"
                             android:textColor="#D5D5D5" />
+
                     </LinearLayout>
 
 
