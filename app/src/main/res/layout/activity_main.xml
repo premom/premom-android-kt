@@ -164,7 +164,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:text="육아일기"
+                    android:text="육아일기장"
                     android:background="@null"
                     android:textColor="#6f6f6f"
                     android:textSize="17dp"/>

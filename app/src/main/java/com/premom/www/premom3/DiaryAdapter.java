@@ -114,7 +114,7 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.ViewHolder>{
             pic_view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(view.getContext(), "준비중입니다~^^", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), "준비중입니다~^^*", Toast.LENGTH_SHORT).show();
                 }
             });
 
