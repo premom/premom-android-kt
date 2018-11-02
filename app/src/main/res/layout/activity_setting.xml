@@ -1,29 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--xmlns:tools="http://schemas.android.com/tools"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--tools:context=".SettingActivity">-->
-
-    <!--<Button android:id="@+id/m_Button"-->
-        <!--android:onClick="Btn_to_Main"-->
-        <!--android:layout_width="280dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textSize="20dp"-->
-        <!--android:textStyle="bold"-->
-        <!--android:textColor="#ffffffff"-->
-        <!--android:background="@color/colorPrimaryDark"-->
-        <!--android:text="뒤로가기"-->
-        <!--android:layout_marginTop="50dp"-->
-        <!--android:layout_gravity="center"-->
-        <!--xmlns:android="http://schemas.android.com/apk/res/android" />-->
-
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/settings_fragment"
-        android:name="com.premom.www.premom3.SettingPreferenceFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingActivity">
 
 
-<!--</android.support.constraint.ConstraintLayout>-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="405dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/editPink"
+            android:text="고객지원"
+            android:gravity="center_vertical"
+            android:paddingTop="7dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="13dp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:orientation="vertical"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="inform_btn"
+                android:text="프로그램 정보"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:paddingLeft="13dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="service_btn"
+                android:text="서비스 도움말"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:paddingLeft="13dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="logout_btn"
+                android:text="로그아웃"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:paddingLeft="13dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="서비스 탈퇴"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:paddingLeft="13dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/editPink"
+            android:text="알림설정"
+            android:gravity="center_vertical"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="13dp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="110"
+                    android:text="메시지 알림"
+                    android:textSize="18sp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="13dp"
+                    android:paddingTop="7dp"
+                    android:paddingBottom="7dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/switch-on" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="110"
+                    android:text="좌석 알림"
+                    android:textSize="18sp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="13dp"
+                    android:paddingTop="7dp"
+                    android:paddingBottom="7dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/switch-on" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/editPink"
+            android:text="테마설정"
+            android:gravity="center_vertical"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="13dp"
+            android:textStyle="bold"/>
+
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

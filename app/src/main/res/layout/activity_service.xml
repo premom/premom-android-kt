@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".ServiceActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text = "서비스 탈퇴 화면입니다."/>
+
 </android.support.constraint.ConstraintLayout>

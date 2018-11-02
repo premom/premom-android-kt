@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".LogoutActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text = "로그아웃 화면 입니다."/>
+
 </android.support.constraint.ConstraintLayout>
