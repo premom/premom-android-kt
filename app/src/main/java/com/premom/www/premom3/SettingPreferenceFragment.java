@@ -11,6 +11,7 @@ public class SettingPreferenceFragment extends PreferenceFragment{
     SharedPreferences prefs;
 
     ListPreference themePreference;
+    ListPreference logoutPreference;
 
 
     public void OnCreate(@Nullable Bundle savedInterState){
@@ -18,6 +19,7 @@ public class SettingPreferenceFragment extends PreferenceFragment{
 
         addPreferencesFromResource(R.xml.setting_preference);
         themePreference = (ListPreference)findPreference("theme_list");
+//        logoutPreference = (ListPreference)findPreference("logout_list");
 
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
@@ -25,6 +27,9 @@ public class SettingPreferenceFragment extends PreferenceFragment{
             themePreference.setSummary(prefs.getString("theme_list","핫핑크"));
         }
 
+//        if(prefs.getBoolean("logout_list",false)){
+//            logoutPreference.setSummary("로그아웃?!");
+//        }
         prefs.registerOnSharedPreferenceChangeListener(preListener);
 
     }
@@ -35,6 +40,17 @@ public class SettingPreferenceFragment extends PreferenceFragment{
             if(key.equals("theme_list")){
                 themePreference.setSummary(prefs.getString("theme_list","핫핑크"));
                 }
+//            if(key.equals("logout_list")){
+//                if(prefs.getBoolean("logout_list",false)){
+//                    logoutPreference.setSummary("1번");
+//                }else{
+//                    logoutPreference.setSummary("2번");
+//                }
+//                ((BaseAdapter)getPreferenceScreen().getRootAdapter()).notifyDataSetChanged();
+//
+//            }
+
+
         }
     };
 
