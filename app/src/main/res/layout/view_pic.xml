@@ -34,6 +34,13 @@
             android:gravity="center_vertical"
             android:text="text"
             android:textSize="15dp" />
+        <TextView
+            android:layout_width="70dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:drawableTop="@drawable/ic_sentiment_satisfied_black_24dp"
+           />
 
     </LinearLayout>
     <ImageView
@@ -44,5 +51,5 @@
         android:layout_weight="1"
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
-        android:scaleType="center"/>
+        android:scaleType="centerCrop"/>
 </LinearLayout>
