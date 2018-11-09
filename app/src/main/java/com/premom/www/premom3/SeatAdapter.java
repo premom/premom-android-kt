@@ -15,9 +15,11 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatAdapter.ViewHolder>{
     private ArrayList<SeatItem> my_items;
 
     int this_position;
-    String name;
     int is_seat;
     int seat_fast;
+    int car;
+    int name;
+    int sub_car;
 
     public SeatAdapter(ArrayList<SeatItem> items){
         my_items = items;
@@ -36,14 +38,23 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position){
         this_position = position;
-        name = my_items.get(position).getName();
+        car = my_items.get(position).getCar();
         is_seat = my_items.get(position).getIs_seat();
         seat_fast = my_items.get(position).getFast_transfer();
+        name =  my_items.get(position).getIdx();
 
         viewHolder.seat_name.setText(name);
-        viewHolder.seat_is_seat.setText("남은좌석 (" + Integer.toString(is_seat) + "/1)");
+        //viewHolder.seat_is_seat.setText("남은좌석 (" + Integer.toString(is_seat) + "/1)");
         if(is_seat == 0) {
-            viewHolder.seat_heart.setImageResource(R.drawable.heart_gray);
+            if(name == 1)
+                viewHolder.seat_heart0.setImageResource(R.drawable.heart_gray);
+            else if(name ==2)
+                viewHolder.seat_heart1.setImageResource(R.drawable.heart_gray);
+            else if(name ==3)
+                viewHolder.seat_heart2.setImageResource(R.drawable.heart_gray);
+            else
+                viewHolder.seat_heart3.setImageResource(R.drawable.heart_gray);
+
         }
 
         if(seat_fast == 1) {
@@ -59,16 +70,22 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatAdapter.ViewHolder>{
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView seat_name;
-        public TextView seat_is_seat;
+        //public TextView seat_is_seat;
         public TextView seat_fast;
-        public ImageView seat_heart;
+        public ImageView seat_heart0;
+        public ImageView seat_heart1;
+        public ImageView seat_heart2;
+        public ImageView seat_heart3;
         public RelativeLayout seat_view;
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
             seat_name = (TextView) itemLayoutView.findViewById(R.id.seat_name);
-            seat_is_seat = (TextView) itemLayoutView.findViewById(R.id.seat_is_seat);
+           /* seat_is_seat = (TextView) itemLayoutView.findViewById(R.id.seat_is_seat);*/
             seat_fast = (TextView) itemLayoutView.findViewById(R.id.seat_fast);
-            seat_heart = (ImageView) itemLayoutView.findViewById(R.id.seat_heart);
+            seat_heart0 = (ImageView) itemLayoutView.findViewById(R.id.seat_heart0);
+            seat_heart1 = (ImageView) itemLayoutView.findViewById(R.id.seat_heart1);
+            seat_heart2 = (ImageView) itemLayoutView.findViewById(R.id.seat_heart2);
+            seat_heart3 = (ImageView) itemLayoutView.findViewById(R.id.seat_heart3);
             seat_view = (RelativeLayout) itemLayoutView.findViewById(R.id.seat_view);
 
         }

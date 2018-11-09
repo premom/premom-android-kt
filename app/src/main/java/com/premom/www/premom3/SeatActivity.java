@@ -119,13 +119,15 @@ public class SeatActivity extends AppCompatActivity implements SwipeRefreshLayou
 
                             int is_seat = obj.getInt("is_seat");
                             int idx = obj.getInt("idx");
-                            String name = obj.getString("name");
+                            int car = obj.getInt("car");
+                            int sub_car = obj.getInt("sub_car");
                             int fast_transfer = obj.getInt("fast_transfer");
 
                             SeatItem item = new SeatItem();
                             item.setIdx(idx);
                             item.setIs_seat(is_seat);
-                            item.setName(name);
+                            item.setCar(car);
+                            item.setSub_car(sub_car);
                             item.setFast_transfer(fast_transfer);
                             item_views.add(item);
                         }
