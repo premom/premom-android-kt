@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F361A6</color>
+    <color name="colorSub">#f75f83</color>
+    <color name="yellow">#ffa94c</color>
+    <color name="colorPrimaryDark">#FB5594</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="editPink">#f48fa9</color>
+    <color name="gray333">#333333</color>
+    <color name="gray666">#666666</color>
+    <color name="gray888">#888888</color>
+    <color name="gray999">#999999</color>
+    <color name="grayccc">#cccccc</color>
+    <color name="white">#ffffff</color>
+
+</resources>

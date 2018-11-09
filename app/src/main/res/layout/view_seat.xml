@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:layout_gravity="center"
+    android:id="@+id/seat_view"
+    tools:context=".SeatActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/border_bottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/seat_name"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:layout_weight="2"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:text="text"/>
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:id="@+id/seat_is_seat"-->
+            <!--android:textSize="16dp"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_weight="3"-->
+            <!--android:text="texst"/>-->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/seat_fast"
+                android:gravity="center_vertical"
+                android:textSize="16dp"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:text="빠른환승"
+                android:textColor="@color/white"
+                android:layout_weight="3"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:id="@+id/seat_heart0"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/heart"
+                android:layout_weight="1"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:id="@+id/seat_heart1"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/heart"
+                android:layout_weight="1"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:id="@+id/seat_heart2"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/heart"
+                android:layout_weight="1"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:id="@+id/seat_heart3"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/heart"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

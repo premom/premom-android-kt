@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MypageActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/twotone"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="56dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="245dp"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="40dp"
+                android:paddingTop="50dp">
+
+                <ImageView
+                    android:id="@+id/pic_cho"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cha2"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="30dp"
+                    android:layout_gravity="center">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="22dp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:text="쁘띠페" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="22dp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:text=" (여)" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            android:text="22세" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            android:text=" / " />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            android:text="임신 7주차" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="22dp"
+                    android:background="@drawable/recpuple"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:text="출산예정일"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="22dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/recpupl"
+                    android:textSize="15dp"
+                    android:text="2019.02.03" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FEE5E9"
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/pg_menu1"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/recpink"
+                    android:textAlignment="textStart"
+                    android:padding="22dp"
+                    android:textSize="15dp"
+                    android:textColor="#747474"
+                    android:drawableStart="@drawable/ic_stop_black_24dp"
+                    android:text="태아 정보 입력" />
+
+                <Button
+                    android:id="@+id/pg_menu2"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:textAlignment="textStart"
+                    android:background="@drawable/recpink"
+                    android:padding="22dp"
+                    android:textColor="#747474"
+                    android:textSize="15dp"
+                    android:drawableStart="@drawable/ic_stop_black_24dp"
+                    android:text="패스워드 변경" />
+
+                <Button
+                    android:id="@+id/pg_menu3"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/recpink"
+                    android:textAlignment="textStart"
+                    android:padding="22dp"
+                    android:textColor="#747474"
+                    android:textSize="15dp"
+                    android:drawableStart="@drawable/ic_stop_black_24dp"
+                    android:text="개인 정보 수정" />
+
+                <Button
+                    android:id="@+id/pg_menu4"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/recpink"
+                    android:textAlignment="textStart"
+                    android:padding="22dp"
+                    android:textColor="#747474"
+                    android:textSize="15dp"
+                    android:drawableStart="@drawable/ic_stop_black_24dp"
+                    android:text="문의하기" />
+
+                <Button
+                    android:id="@+id/pg_menu5"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/recpink"
+                    android:textAlignment="textStart"
+                    android:padding="22dp"
+                    android:textColor="#747474"
+                    android:textSize="15dp"
+                    android:drawableStart="@drawable/ic_stop_black_24dp"
+                    android:text="정보 보기" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
